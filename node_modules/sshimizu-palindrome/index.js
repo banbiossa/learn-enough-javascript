@@ -16,13 +16,18 @@ function Phrase(content){
 
   // letters
   this.letters = function letters(){
-    return (this.content.match(/[a-z]/ig) || []).join("");
+    const lettersRegex = /[a-z]/ig;
+    return (this.content.match(lettersRegex) || []).join("");
   }
 
   // is palindrome
   this.palindrome = function palindrome(){
     // return this.processedContent() === reverse(this.processedContent());
-    return this.processedContent() === this.processedContent().reverse();
+    if (this.processedContent()) {
+      return this.processedContent() === this.processedContent().reverse();
+    } else {
+      return false;
+    }
   }
 
 }
